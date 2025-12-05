@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation"
 
 export function Header() {
   const pathname = usePathname()
-
+  const router = useRouter()
+  
   const navItems = [
     { href: "/home", label: "Dashboard" },
     { href: "/realtime", label: "Tiempo Real" },
@@ -17,8 +18,7 @@ export function Header() {
   ]
 
 
-  function logout(){
-    const router = useRouter()
+  function logout(){    
     localStorage.removeItem("sensorhub_auth")
     router.push("/login")
   }
@@ -52,9 +52,9 @@ export function Header() {
             <Settings className="w-5 h-5" />
           </Button>
           </Link>           
-            <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white">
+            <button onClick={logout} className="text-slate-400 hover:text-white">
               <LogOut className="w-5 h-5" />
-            </Button>           
+            </button>           
         </div>
       </div>
     </header>
