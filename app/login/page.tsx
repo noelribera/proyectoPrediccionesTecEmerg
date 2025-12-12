@@ -193,22 +193,7 @@ export default function LoginPage() {
               </div>
             )}
           </form>
-        </Card>
-
-        {/* Footer Links */}
-        <div className="text-center space-y-2">
-          <button 
-            className="text-sm text-blue-400 hover:text-blue-300"
-            onClick={() => {
-              alert(`Usuarios de prueba:\n\n1. ${STATIC_USERS[0].email} / ${STATIC_USERS[0].password}\n2. ${STATIC_USERS[1].email} / ${STATIC_USERS[1].password}`)
-            }}
-          >
-            ¿Olvidaste tu contraseña?
-          </button>
-          <p className="text-sm text-slate-400">
-            ¿No tienes cuenta? <button className="text-blue-400 hover:text-blue-300">Regístrate</button>
-          </p>
-        </div>
+        </Card>        
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { User, Mail, Phone, MapPin, Bell, Lock, Eye, LogOut, ChevronRight } from "lucide-react"
 import { useState } from "react"
+import AuthGuard from "@/components/AuthGuard"
 
 export default function ProfilePage() {
   const [notifications, setNotifications] = useState({
@@ -22,11 +23,12 @@ export default function ProfilePage() {
   const toggleNotification = (key: string) => {
     setNotifications((prev) => ({
       ...prev,
-      [key]: !prev[key],
+      [key]: !prev[key as keyof typeof notifications],
     }))
   }
 
   return (
+    <AuthGuard>
     <div className="min-h-screen bg-slate-900 pb-24">
       {/* Header */}
       <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-10">
@@ -258,5 +260,6 @@ export default function ProfilePage() {
         </div>
       </nav>
     </div>
+    </AuthGuard>
   )
 }

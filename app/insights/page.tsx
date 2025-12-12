@@ -4,6 +4,7 @@ import { Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TrendingUp, Download, Filter, Wind, Activity, Bell, Settings } from "lucide-react"
+import AuthGuard from "@/components/AuthGuard"
 import { useState } from "react"
 
 // Mock data for comparative analysis
@@ -31,6 +32,7 @@ export default function InsightsPage() {
   const [selectedRange, setSelectedRange] = useState("24h")
 
   return (
+    <AuthGuard>
     <div className="min-h-screen bg-slate-900 pb-24">
       {/* Header */}
       <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-10">
@@ -206,5 +208,6 @@ export default function InsightsPage() {
         </div>
       </nav>
     </div>
+    </AuthGuard>
   )
 }

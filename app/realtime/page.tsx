@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import AuthGuard from "@/components/AuthGuard"
 import { RefreshCw } from "lucide-react"
 
 // Mock real-time data
@@ -115,6 +116,7 @@ export default function RealtimePage() {
   }, [isLive])
 
   return (
+    <AuthGuard>
     <div className="min-h-screen bg-slate-900">
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -192,5 +194,6 @@ export default function RealtimePage() {
         </div>
       </main>
     </div>
+    </AuthGuard>
   )
 }
